@@ -1,0 +1,27 @@
+{
+  "id" : "film_actor.fk_film_actor_film",
+  "name" : "fk_film_actor_film",
+  "method" : "BTREE",
+  "unique" : false,
+  "type" : {
+    "table" : {
+      "ref" : {
+        "id" : "film_actor",
+        "tableName" : "film_actor",
+        "containerName" : "prod-med19"
+      },
+      "columns" : [ {
+        "ref" : {
+          "container" : "prod-med19",
+          "tableName" : "film_actor",
+          "columnName" : "film_id"
+        },
+        "position" : 1
+      } ]
+    }
+  },
+  "properties" : {
+    "keyBlockSize" : 0,
+    "comment" : ""
+  }
+}

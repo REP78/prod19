@@ -1,0 +1,118 @@
+{
+  "name" : "category",
+  "temporary" : false,
+  "constraints" : [ {
+    "name" : "PRIMARY",
+    "inline" : false,
+    "type" : {
+      "primaryKey" : {
+        "columns" : [ {
+          "container" : "prod-med19",
+          "tableName" : "category",
+          "columnName" : "category_id"
+        } ]
+      }
+    }
+  }, {
+    "inline" : true,
+    "type" : {
+      "notNull" : {
+        "columns" : [ {
+          "container" : "prod-med19",
+          "tableName" : "category",
+          "columnName" : "category_id"
+        } ]
+      }
+    }
+  }, {
+    "inline" : true,
+    "type" : {
+      "notNull" : {
+        "columns" : [ {
+          "container" : "prod-med19",
+          "tableName" : "category",
+          "columnName" : "name"
+        } ]
+      }
+    }
+  }, {
+    "inline" : true,
+    "type" : {
+      "notNull" : {
+        "columns" : [ {
+          "container" : "prod-med19",
+          "tableName" : "category",
+          "columnName" : "last_update"
+        } ]
+      }
+    }
+  } ],
+  "type" : {
+    "relational" : {
+      "columns" : [ {
+        "name" : "category_id",
+        "properties" : {
+          "autoincrement" : true
+        },
+        "dataType" : {
+          "text" : "tinyint(${0}) ${1}",
+          "name" : "tinyint",
+          "params" : [ {
+            "position" : 0,
+            "name" : "length",
+            "value" : "3"
+          }, {
+            "position" : 1,
+            "name" : "signed",
+            "value" : "UNSIGNED"
+          } ]
+        }
+      }, {
+        "name" : "name",
+        "properties" : {
+          "autoincrement" : false
+        },
+        "dataType" : {
+          "text" : "varchar(${0}) COLLATE ${1} CHARACTER SET ${2}",
+          "name" : "varchar",
+          "params" : [ {
+            "position" : 0,
+            "name" : "length",
+            "value" : "25"
+          }, {
+            "position" : 1,
+            "name" : "collation",
+            "value" : "utf8_general_ci"
+          }, {
+            "position" : 2,
+            "name" : "charset",
+            "value" : "utf8"
+          } ]
+        }
+      }, {
+        "name" : "last_update",
+        "defaultValue" : "CURRENT_TIMESTAMP",
+        "properties" : {
+          "autoincrement" : false,
+          "onUpdate" : "CURRENT_TIMESTAMP"
+        },
+        "dataType" : {
+          "text" : "timestamp( ${0})",
+          "name" : "timestamp",
+          "params" : [ {
+            "position" : 0,
+            "name" : "fsp",
+            "value" : "0"
+          } ]
+        }
+      } ]
+    }
+  },
+  "properties" : {
+    "engine" : "InnoDB",
+    "autoIncrement" : 1,
+    "avgRowLength" : 0,
+    "collate" : "utf8_general_ci",
+    "rowFormat" : "DEFAULT"
+  }
+}

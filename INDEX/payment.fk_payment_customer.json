@@ -1,0 +1,27 @@
+{
+  "id" : "payment.fk_payment_customer",
+  "name" : "fk_payment_customer",
+  "method" : "BTREE",
+  "unique" : false,
+  "type" : {
+    "table" : {
+      "ref" : {
+        "id" : "payment",
+        "tableName" : "payment",
+        "containerName" : "prod-med19"
+      },
+      "columns" : [ {
+        "ref" : {
+          "container" : "prod-med19",
+          "tableName" : "payment",
+          "columnName" : "customer_id"
+        },
+        "position" : 1
+      } ]
+    }
+  },
+  "properties" : {
+    "keyBlockSize" : 0,
+    "comment" : ""
+  }
+}

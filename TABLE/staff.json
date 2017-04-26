@@ -1,0 +1,366 @@
+{
+  "name" : "staff",
+  "temporary" : false,
+  "constraints" : [ {
+    "name" : "fk_staff_store",
+    "inline" : false,
+    "type" : {
+      "foreignKey" : {
+        "columns" : [ {
+          "container" : "prod-med19",
+          "tableName" : "staff",
+          "columnName" : "store_id"
+        } ],
+        "refColumns" : [ {
+          "container" : "",
+          "tableName" : "store",
+          "columnName" : "store_id"
+        } ],
+        "properties" : {
+          "matchRule" : "NONE",
+          "onDelete" : "NO ACTION",
+          "onUpdate" : "CASCADE"
+        }
+      }
+    }
+  }, {
+    "name" : "PRIMARY",
+    "inline" : false,
+    "type" : {
+      "primaryKey" : {
+        "columns" : [ {
+          "container" : "prod-med19",
+          "tableName" : "staff",
+          "columnName" : "staff_id"
+        } ]
+      }
+    }
+  }, {
+    "name" : "fk_staff_address",
+    "inline" : false,
+    "type" : {
+      "foreignKey" : {
+        "columns" : [ {
+          "container" : "prod-med19",
+          "tableName" : "staff",
+          "columnName" : "address_id"
+        } ],
+        "refColumns" : [ {
+          "container" : "",
+          "tableName" : "address",
+          "columnName" : "address_id"
+        } ],
+        "properties" : {
+          "matchRule" : "NONE",
+          "onDelete" : "NO ACTION",
+          "onUpdate" : "CASCADE"
+        }
+      }
+    }
+  }, {
+    "inline" : true,
+    "type" : {
+      "notNull" : {
+        "columns" : [ {
+          "container" : "prod-med19",
+          "tableName" : "staff",
+          "columnName" : "staff_id"
+        } ]
+      }
+    }
+  }, {
+    "inline" : true,
+    "type" : {
+      "notNull" : {
+        "columns" : [ {
+          "container" : "prod-med19",
+          "tableName" : "staff",
+          "columnName" : "first_name"
+        } ]
+      }
+    }
+  }, {
+    "inline" : true,
+    "type" : {
+      "notNull" : {
+        "columns" : [ {
+          "container" : "prod-med19",
+          "tableName" : "staff",
+          "columnName" : "last_name"
+        } ]
+      }
+    }
+  }, {
+    "inline" : true,
+    "type" : {
+      "notNull" : {
+        "columns" : [ {
+          "container" : "prod-med19",
+          "tableName" : "staff",
+          "columnName" : "address_id"
+        } ]
+      }
+    }
+  }, {
+    "inline" : true,
+    "type" : {
+      "notNull" : {
+        "columns" : [ {
+          "container" : "prod-med19",
+          "tableName" : "staff",
+          "columnName" : "store_id"
+        } ]
+      }
+    }
+  }, {
+    "inline" : true,
+    "type" : {
+      "notNull" : {
+        "columns" : [ {
+          "container" : "prod-med19",
+          "tableName" : "staff",
+          "columnName" : "active"
+        } ]
+      }
+    }
+  }, {
+    "inline" : true,
+    "type" : {
+      "notNull" : {
+        "columns" : [ {
+          "container" : "prod-med19",
+          "tableName" : "staff",
+          "columnName" : "username"
+        } ]
+      }
+    }
+  }, {
+    "inline" : true,
+    "type" : {
+      "notNull" : {
+        "columns" : [ {
+          "container" : "prod-med19",
+          "tableName" : "staff",
+          "columnName" : "last_update"
+        } ]
+      }
+    }
+  } ],
+  "type" : {
+    "relational" : {
+      "columns" : [ {
+        "name" : "staff_id",
+        "properties" : {
+          "autoincrement" : true
+        },
+        "dataType" : {
+          "text" : "tinyint(${0}) ${1}",
+          "name" : "tinyint",
+          "params" : [ {
+            "position" : 0,
+            "name" : "length",
+            "value" : "3"
+          }, {
+            "position" : 1,
+            "name" : "signed",
+            "value" : "UNSIGNED"
+          } ]
+        }
+      }, {
+        "name" : "first_name",
+        "properties" : {
+          "autoincrement" : false
+        },
+        "dataType" : {
+          "text" : "varchar(${0}) COLLATE ${1} CHARACTER SET ${2}",
+          "name" : "varchar",
+          "params" : [ {
+            "position" : 0,
+            "name" : "length",
+            "value" : "45"
+          }, {
+            "position" : 1,
+            "name" : "collation",
+            "value" : "utf8_general_ci"
+          }, {
+            "position" : 2,
+            "name" : "charset",
+            "value" : "utf8"
+          } ]
+        }
+      }, {
+        "name" : "last_name",
+        "properties" : {
+          "autoincrement" : false
+        },
+        "dataType" : {
+          "text" : "varchar(${0}) COLLATE ${1} CHARACTER SET ${2}",
+          "name" : "varchar",
+          "params" : [ {
+            "position" : 0,
+            "name" : "length",
+            "value" : "45"
+          }, {
+            "position" : 1,
+            "name" : "collation",
+            "value" : "utf8_general_ci"
+          }, {
+            "position" : 2,
+            "name" : "charset",
+            "value" : "utf8"
+          } ]
+        }
+      }, {
+        "name" : "address_id",
+        "properties" : {
+          "autoincrement" : false
+        },
+        "dataType" : {
+          "text" : "smallint(${0}) ${1}",
+          "name" : "smallint",
+          "params" : [ {
+            "position" : 0,
+            "name" : "length",
+            "value" : "5"
+          }, {
+            "position" : 1,
+            "name" : "signed",
+            "value" : "UNSIGNED"
+          } ]
+        }
+      }, {
+        "name" : "picture",
+        "properties" : {
+          "autoincrement" : false
+        },
+        "dataType" : {
+          "text" : "blob",
+          "name" : "blob",
+          "params" : [ ]
+        }
+      }, {
+        "name" : "email",
+        "properties" : {
+          "autoincrement" : false
+        },
+        "dataType" : {
+          "text" : "varchar(${0}) COLLATE ${1} CHARACTER SET ${2}",
+          "name" : "varchar",
+          "params" : [ {
+            "position" : 0,
+            "name" : "length",
+            "value" : "50"
+          }, {
+            "position" : 1,
+            "name" : "collation",
+            "value" : "utf8_general_ci"
+          }, {
+            "position" : 2,
+            "name" : "charset",
+            "value" : "utf8"
+          } ]
+        }
+      }, {
+        "name" : "store_id",
+        "properties" : {
+          "autoincrement" : false
+        },
+        "dataType" : {
+          "text" : "tinyint(${0}) ${1}",
+          "name" : "tinyint",
+          "params" : [ {
+            "position" : 0,
+            "name" : "length",
+            "value" : "3"
+          }, {
+            "position" : 1,
+            "name" : "signed",
+            "value" : "UNSIGNED"
+          } ]
+        }
+      }, {
+        "name" : "active",
+        "defaultValue" : "1",
+        "properties" : {
+          "autoincrement" : false
+        },
+        "dataType" : {
+          "text" : "tinyint(${0})",
+          "name" : "tinyint",
+          "params" : [ {
+            "position" : 0,
+            "name" : "length",
+            "value" : "1"
+          } ]
+        }
+      }, {
+        "name" : "username",
+        "properties" : {
+          "autoincrement" : false
+        },
+        "dataType" : {
+          "text" : "varchar(${0}) COLLATE ${1} CHARACTER SET ${2}",
+          "name" : "varchar",
+          "params" : [ {
+            "position" : 0,
+            "name" : "length",
+            "value" : "16"
+          }, {
+            "position" : 1,
+            "name" : "collation",
+            "value" : "utf8_general_ci"
+          }, {
+            "position" : 2,
+            "name" : "charset",
+            "value" : "utf8"
+          } ]
+        }
+      }, {
+        "name" : "password",
+        "properties" : {
+          "autoincrement" : false
+        },
+        "dataType" : {
+          "text" : "varchar(${0}) COLLATE ${1} CHARACTER SET ${2}",
+          "name" : "varchar",
+          "params" : [ {
+            "position" : 0,
+            "name" : "length",
+            "value" : "40"
+          }, {
+            "position" : 1,
+            "name" : "collation",
+            "value" : "utf8_bin"
+          }, {
+            "position" : 2,
+            "name" : "charset",
+            "value" : "utf8"
+          } ]
+        }
+      }, {
+        "name" : "last_update",
+        "defaultValue" : "CURRENT_TIMESTAMP",
+        "properties" : {
+          "autoincrement" : false,
+          "onUpdate" : "CURRENT_TIMESTAMP"
+        },
+        "dataType" : {
+          "text" : "timestamp( ${0})",
+          "name" : "timestamp",
+          "params" : [ {
+            "position" : 0,
+            "name" : "fsp",
+            "value" : "0"
+          } ]
+        }
+      } ]
+    }
+  },
+  "properties" : {
+    "engine" : "InnoDB",
+    "autoIncrement" : 1,
+    "avgRowLength" : 0,
+    "collate" : "utf8_general_ci",
+    "rowFormat" : "DEFAULT"
+  }
+}

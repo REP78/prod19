@@ -1,0 +1,19 @@
+{
+  "id" : "upd_film",
+  "time" : "AFTER",
+  "action" : "BEGIN\r\n   IF    (old.title != new.title)\r\n      OR (old.description != new.description)\r\n      OR (old.film_id != new.film_id)\r\n   THEN\r\n      UPDATE film_text\r\n         SET title = new.title,\r\n             description = new.description,\r\n             film_id = new.film_id\r\n       WHERE film_id = old.film_id;\r\n   END IF;\r\nEND",
+  "on" : {
+    "table" : {
+      "events" : [ "UPDATE" ],
+      "tableRef" : {
+        "id" : "film",
+        "tableName" : "film",
+        "containerName" : "prod-med19"
+      }
+    }
+  },
+  "properties" : {
+    "definer" : "`root`@`localhost`"
+  },
+  "name" : "upd_film"
+}

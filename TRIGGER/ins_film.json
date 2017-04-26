@@ -1,0 +1,19 @@
+{
+  "id" : "ins_film",
+  "time" : "AFTER",
+  "action" : "BEGIN\r\n   INSERT INTO film_text(film_id, title, description)\r\n        VALUES (new.film_id, new.title, new.description);\r\nEND",
+  "on" : {
+    "table" : {
+      "events" : [ "INSERT" ],
+      "tableRef" : {
+        "id" : "film",
+        "tableName" : "film",
+        "containerName" : "prod-med19"
+      }
+    }
+  },
+  "properties" : {
+    "definer" : "`root`@`localhost`"
+  },
+  "name" : "ins_film"
+}

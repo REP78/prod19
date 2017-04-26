@@ -1,0 +1,19 @@
+{
+  "id" : "customer_create_date",
+  "time" : "BEFORE",
+  "action" : "SET NEW.create_date = NOW()",
+  "on" : {
+    "table" : {
+      "events" : [ "INSERT" ],
+      "tableRef" : {
+        "id" : "customer",
+        "tableName" : "customer",
+        "containerName" : "prod-med19"
+      }
+    }
+  },
+  "properties" : {
+    "definer" : "`root`@`localhost`"
+  },
+  "name" : "customer_create_date"
+}

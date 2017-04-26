@@ -1,0 +1,27 @@
+{
+  "id" : "payment.fk_payment_staff",
+  "name" : "fk_payment_staff",
+  "method" : "BTREE",
+  "unique" : false,
+  "type" : {
+    "table" : {
+      "ref" : {
+        "id" : "payment",
+        "tableName" : "payment",
+        "containerName" : "prod-med19"
+      },
+      "columns" : [ {
+        "ref" : {
+          "container" : "prod-med19",
+          "tableName" : "payment",
+          "columnName" : "staff_id"
+        },
+        "position" : 1
+      } ]
+    }
+  },
+  "properties" : {
+    "keyBlockSize" : 0,
+    "comment" : ""
+  }
+}

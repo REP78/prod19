@@ -1,0 +1,153 @@
+{
+  "name" : "devgame",
+  "temporary" : false,
+  "constraints" : [ {
+    "name" : "PRIMARY",
+    "inline" : false,
+    "type" : {
+      "primaryKey" : {
+        "columns" : [ {
+          "container" : "prod-med19",
+          "tableName" : "devgame",
+          "columnName" : "user_id"
+        } ]
+      }
+    }
+  }, {
+    "inline" : true,
+    "type" : {
+      "notNull" : {
+        "columns" : [ {
+          "container" : "prod-med19",
+          "tableName" : "devgame",
+          "columnName" : "user_id"
+        } ]
+      }
+    }
+  }, {
+    "inline" : true,
+    "type" : {
+      "notNull" : {
+        "columns" : [ {
+          "container" : "prod-med19",
+          "tableName" : "devgame",
+          "columnName" : "years_experience"
+        } ]
+      }
+    }
+  } ],
+  "type" : {
+    "relational" : {
+      "columns" : [ {
+        "name" : "user_id",
+        "properties" : {
+          "autoincrement" : true
+        },
+        "dataType" : {
+          "text" : "int(${0}) ${1}",
+          "name" : "int",
+          "params" : [ {
+            "position" : 0,
+            "name" : "length",
+            "value" : "10"
+          }, {
+            "position" : 1,
+            "name" : "signed",
+            "value" : "UNSIGNED"
+          } ]
+        }
+      }, {
+        "name" : "engine",
+        "properties" : {
+          "autoincrement" : false
+        },
+        "dataType" : {
+          "text" : "varchar(${0}) COLLATE ${1} CHARACTER SET ${2}",
+          "name" : "varchar",
+          "params" : [ {
+            "position" : 0,
+            "name" : "length",
+            "value" : "20"
+          }, {
+            "position" : 1,
+            "name" : "collation",
+            "value" : "latin1_swedish_ci"
+          }, {
+            "position" : 2,
+            "name" : "charset",
+            "value" : "latin1"
+          } ]
+        }
+      }, {
+        "name" : "ide",
+        "properties" : {
+          "autoincrement" : false
+        },
+        "dataType" : {
+          "text" : "varchar(${0}) COLLATE ${1} CHARACTER SET ${2}",
+          "name" : "varchar",
+          "params" : [ {
+            "position" : 0,
+            "name" : "length",
+            "value" : "20"
+          }, {
+            "position" : 1,
+            "name" : "collation",
+            "value" : "latin1_swedish_ci"
+          }, {
+            "position" : 2,
+            "name" : "charset",
+            "value" : "latin1"
+          } ]
+        }
+      }, {
+        "name" : "years_experience",
+        "properties" : {
+          "autoincrement" : false
+        },
+        "dataType" : {
+          "text" : "int(${0}) ${1}",
+          "name" : "int",
+          "params" : [ {
+            "position" : 0,
+            "name" : "length",
+            "value" : "10"
+          }, {
+            "position" : 1,
+            "name" : "signed",
+            "value" : "UNSIGNED"
+          } ]
+        }
+      }, {
+        "name" : "platforms",
+        "properties" : {
+          "autoincrement" : false
+        },
+        "dataType" : {
+          "text" : "varchar(${0}) COLLATE ${1} CHARACTER SET ${2}",
+          "name" : "varchar",
+          "params" : [ {
+            "position" : 0,
+            "name" : "length",
+            "value" : "20"
+          }, {
+            "position" : 1,
+            "name" : "collation",
+            "value" : "latin1_swedish_ci"
+          }, {
+            "position" : 2,
+            "name" : "charset",
+            "value" : "latin1"
+          } ]
+        }
+      } ]
+    }
+  },
+  "properties" : {
+    "engine" : "InnoDB",
+    "autoIncrement" : 1,
+    "avgRowLength" : 0,
+    "collate" : "latin1_swedish_ci",
+    "rowFormat" : "DEFAULT"
+  }
+}

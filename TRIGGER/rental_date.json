@@ -1,0 +1,19 @@
+{
+  "id" : "rental_date",
+  "time" : "BEFORE",
+  "action" : "SET NEW.rental_date = NOW()",
+  "on" : {
+    "table" : {
+      "events" : [ "INSERT" ],
+      "tableRef" : {
+        "id" : "rental",
+        "tableName" : "rental",
+        "containerName" : "prod-med19"
+      }
+    }
+  },
+  "properties" : {
+    "definer" : "`root`@`localhost`"
+  },
+  "name" : "rental_date"
+}

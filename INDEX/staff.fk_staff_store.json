@@ -1,0 +1,27 @@
+{
+  "id" : "staff.fk_staff_store",
+  "name" : "fk_staff_store",
+  "method" : "BTREE",
+  "unique" : false,
+  "type" : {
+    "table" : {
+      "ref" : {
+        "id" : "staff",
+        "tableName" : "staff",
+        "containerName" : "prod-med19"
+      },
+      "columns" : [ {
+        "ref" : {
+          "container" : "prod-med19",
+          "tableName" : "staff",
+          "columnName" : "store_id"
+        },
+        "position" : 1
+      } ]
+    }
+  },
+  "properties" : {
+    "keyBlockSize" : 0,
+    "comment" : ""
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id" : "rental.fk_rental_customer",
+  "name" : "fk_rental_customer",
+  "method" : "BTREE",
+  "unique" : false,
+  "type" : {
+    "table" : {
+      "ref" : {
+        "id" : "rental",
+        "tableName" : "rental",
+        "containerName" : "prod-med19"
+      },
+      "columns" : [ {
+        "ref" : {
+          "container" : "prod-med19",
+          "tableName" : "rental",
+          "columnName" : "customer_id"
+        },
+        "position" : 1
+      } ]
+    }
+  },
+  "properties" : {
+    "keyBlockSize" : 0,
+    "comment" : ""
+  }
+}

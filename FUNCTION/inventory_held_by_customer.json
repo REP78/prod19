@@ -1,0 +1,25 @@
+{
+  "id" : "inventory_held_by_customer",
+  "name" : "inventory_held_by_customer",
+  "definer" : "`root`@`localhost`",
+  "body" : "BEGIN\r\n   DECLARE v_customer_id   INT;\r\n   DECLARE EXIT HANDLER FOR NOT FOUND\r\n              RETURN NULL;\r\n\r\n   SELECT customer_id\r\n     INTO v_customer_id\r\n     FROM rental\r\n    WHERE return_date IS NULL AND inventory_id = p_inventory_id;\r\n\r\n   RETURN v_customer_id;\r\nEND",
+  "returns" : {
+    "text" : "int(11)",
+    "name" : "int(11)"
+  },
+  "params" : [ {
+    "paramMode" : "IN",
+    "paramName" : "p_inventory_id",
+    "dataType" : {
+      "text" : "int(11)",
+      "name" : "int(11)"
+    },
+    "position" : 1
+  } ],
+  "properties" : {
+    "comment" : "",
+    "deterministic" : "NOT DETERMINISTIC",
+    "dataUse" : "READS SQL DATA",
+    "sqlSecurity" : "DEFINER"
+  }
+}

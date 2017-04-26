@@ -1,0 +1,114 @@
+{
+  "name" : "staffevent",
+  "temporary" : false,
+  "constraints" : [ {
+    "name" : "PRIMARY",
+    "inline" : false,
+    "type" : {
+      "primaryKey" : {
+        "columns" : [ {
+          "container" : "prod-med19",
+          "tableName" : "staffevent",
+          "columnName" : "event_id"
+        } ]
+      }
+    }
+  }, {
+    "inline" : true,
+    "type" : {
+      "notNull" : {
+        "columns" : [ {
+          "container" : "prod-med19",
+          "tableName" : "staffevent",
+          "columnName" : "event_id"
+        } ]
+      }
+    }
+  }, {
+    "inline" : true,
+    "type" : {
+      "notNull" : {
+        "columns" : [ {
+          "container" : "prod-med19",
+          "tableName" : "staffevent",
+          "columnName" : "etype"
+        } ]
+      }
+    }
+  } ],
+  "type" : {
+    "relational" : {
+      "columns" : [ {
+        "name" : "event_id",
+        "properties" : {
+          "autoincrement" : false
+        },
+        "dataType" : {
+          "text" : "int(${0})",
+          "name" : "int",
+          "params" : [ {
+            "position" : 0,
+            "name" : "length",
+            "value" : "10"
+          } ]
+        }
+      }, {
+        "name" : "etype",
+        "properties" : {
+          "autoincrement" : false
+        },
+        "dataType" : {
+          "text" : "varchar(${0}) COLLATE ${1} CHARACTER SET ${2}",
+          "name" : "varchar",
+          "params" : [ {
+            "position" : 0,
+            "name" : "length",
+            "value" : "20"
+          }, {
+            "position" : 1,
+            "name" : "collation",
+            "value" : "latin1_swedish_ci"
+          }, {
+            "position" : 2,
+            "name" : "charset",
+            "value" : "latin1"
+          } ]
+        }
+      }, {
+        "name" : "eyear",
+        "properties" : {
+          "autoincrement" : false
+        },
+        "dataType" : {
+          "text" : "year",
+          "name" : "year",
+          "params" : [ ]
+        }
+      }, {
+        "name" : "tech",
+        "properties" : {
+          "autoincrement" : false
+        },
+        "dataType" : {
+          "text" : "text COLLATE ${0} CHARACTER SET ${1}",
+          "name" : "text",
+          "params" : [ {
+            "position" : 0,
+            "name" : "collation",
+            "value" : "latin1_swedish_ci"
+          }, {
+            "position" : 1,
+            "name" : "charset",
+            "value" : "latin1"
+          } ]
+        }
+      } ]
+    }
+  },
+  "properties" : {
+    "engine" : "InnoDB",
+    "avgRowLength" : 0,
+    "collate" : "latin1_swedish_ci",
+    "rowFormat" : "DEFAULT"
+  }
+}

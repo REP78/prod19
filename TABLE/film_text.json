@@ -1,0 +1,104 @@
+{
+  "name" : "film_text",
+  "temporary" : false,
+  "constraints" : [ {
+    "name" : "PRIMARY",
+    "inline" : false,
+    "type" : {
+      "primaryKey" : {
+        "columns" : [ {
+          "container" : "prod-med19",
+          "tableName" : "film_text",
+          "columnName" : "film_id"
+        } ]
+      }
+    }
+  }, {
+    "inline" : true,
+    "type" : {
+      "notNull" : {
+        "columns" : [ {
+          "container" : "prod-med19",
+          "tableName" : "film_text",
+          "columnName" : "film_id"
+        } ]
+      }
+    }
+  }, {
+    "inline" : true,
+    "type" : {
+      "notNull" : {
+        "columns" : [ {
+          "container" : "prod-med19",
+          "tableName" : "film_text",
+          "columnName" : "title"
+        } ]
+      }
+    }
+  } ],
+  "type" : {
+    "relational" : {
+      "columns" : [ {
+        "name" : "film_id",
+        "properties" : {
+          "autoincrement" : false
+        },
+        "dataType" : {
+          "text" : "smallint(${0})",
+          "name" : "smallint",
+          "params" : [ {
+            "position" : 0,
+            "name" : "length",
+            "value" : "6"
+          } ]
+        }
+      }, {
+        "name" : "title",
+        "properties" : {
+          "autoincrement" : false
+        },
+        "dataType" : {
+          "text" : "varchar(${0}) COLLATE ${1} CHARACTER SET ${2}",
+          "name" : "varchar",
+          "params" : [ {
+            "position" : 0,
+            "name" : "length",
+            "value" : "255"
+          }, {
+            "position" : 1,
+            "name" : "collation",
+            "value" : "utf8_general_ci"
+          }, {
+            "position" : 2,
+            "name" : "charset",
+            "value" : "utf8"
+          } ]
+        }
+      }, {
+        "name" : "description",
+        "properties" : {
+          "autoincrement" : false
+        },
+        "dataType" : {
+          "text" : "text COLLATE ${0} CHARACTER SET ${1}",
+          "name" : "text",
+          "params" : [ {
+            "position" : 0,
+            "name" : "collation",
+            "value" : "utf8_general_ci"
+          }, {
+            "position" : 1,
+            "name" : "charset",
+            "value" : "utf8"
+          } ]
+        }
+      } ]
+    }
+  },
+  "properties" : {
+    "engine" : "InnoDB",
+    "avgRowLength" : 0,
+    "collate" : "utf8_general_ci",
+    "rowFormat" : "DEFAULT"
+  }
+}

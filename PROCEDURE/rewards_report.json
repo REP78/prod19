@@ -1,0 +1,37 @@
+{
+  "id" : "rewards_report",
+  "name" : "rewards_report",
+  "definer" : "`root`@`localhost`",
+  "body" : "proc:\r\nBEGIN\r\n   DECLARE last_month_start   DATE;\r\n   DECLARE last_month_end     DATE;\r\n\r\n   /* Some sanity checks... */\r\n   IF min_monthly_purchases = 0\r\n   THEN\r\n      SELECT 'Minimum monthly purchases parameter must be > 0';\r\n\r\n      LEAVE proc;\r\n   END IF;\r\n\r\n   IF min_dollar_amount_purchased = 0.00\r\n   THEN\r\n      SELECT 'Minimum monthly dollar amount purchased parameter must be > $0.00';\r\n\r\n      LEAVE proc;\r\n   END IF;\r\n\r\n   /* Determine start and end time periods */\r\n   SET last_month_start = DATE_SUB(CURRENT_DATE(), INTERVAL 1 MONTH);\r\n   SET last_month_start =\r\n          STR_TO_DATE(CONCAT(YEAR(last_month_start),\r\n                             '-',\r\n                             MONTH(last_month_start),\r\n                             '-01'),\r\n                      '%Y-%m-%d');\r\n   SET last_month_end = LAST_DAY(last_month_start);\r\n\r\n   /*\r\n       Create a temporary storage area for\r\n       Customer IDs.\r\n   */\r\n   CREATE TEMPORARY TABLE tmpCustomer\r\n   (\r\n      customer_id    SMALLINT UNSIGNED NOT NULL PRIMARY KEY\r\n   );\r\n\r\n   /*\r\n       Find all customers meeting the\r\n       monthly purchase requirements\r\n   */\r\n   INSERT INTO tmpCustomer(customer_id)\r\n        SELECT p.customer_id\r\n          FROM payment AS p\r\n         WHERE DATE(p.payment_date) BETWEEN last_month_start AND last_month_end\r\n      GROUP BY customer_id\r\n        HAVING     SUM(p.amount) > min_dollar_amount_purchased\r\n               AND COUNT(customer_id) > min_monthly_purchases;\r\n\r\n   /* Populate OUT parameter with count of found customers */\r\n   SELECT COUNT(*)\r\n     FROM tmpCustomer\r\n     INTO count_rewardees;\r\n\r\n   /*\r\n       Output ALL customer information of matching rewardees.\r\n       Customize output as needed.\r\n   */\r\n   SELECT c.*\r\n     FROM tmpCustomer AS t\r\n          INNER JOIN customer AS c ON t.customer_id = c.customer_id;\r\n\r\n   /* Clean up */\r\n   DROP TABLE tmpCustomer;\r\nEND",
+  "params" : [ {
+    "paramMode" : "IN",
+    "paramName" : "min_monthly_purchases",
+    "dataType" : {
+      "text" : "tinyint(3) unsigned",
+      "name" : "tinyint(3) unsigned"
+    },
+    "position" : 1
+  }, {
+    "paramMode" : "IN",
+    "paramName" : "min_dollar_amount_purchased",
+    "dataType" : {
+      "text" : "decimal(10,2) unsigned",
+      "name" : "decimal(10,2) unsigned"
+    },
+    "position" : 2
+  }, {
+    "paramMode" : "OUT",
+    "paramName" : "count_rewardees",
+    "dataType" : {
+      "text" : "int(11)",
+      "name" : "int(11)"
+    },
+    "position" : 3
+  } ],
+  "properties" : {
+    "comment" : "Provides a customizable report on best customers",
+    "deterministic" : "NOT DETERMINISTIC",
+    "dataUse" : "READS SQL DATA",
+    "sqlSecurity" : "DEFINER"
+  }
+}

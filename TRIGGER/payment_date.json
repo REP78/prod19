@@ -1,0 +1,19 @@
+{
+  "id" : "payment_date",
+  "time" : "BEFORE",
+  "action" : "SET NEW.payment_date = NOW()",
+  "on" : {
+    "table" : {
+      "events" : [ "INSERT" ],
+      "tableRef" : {
+        "id" : "payment",
+        "tableName" : "payment",
+        "containerName" : "prod-med19"
+      }
+    }
+  },
+  "properties" : {
+    "definer" : "`root`@`localhost`"
+  },
+  "name" : "payment_date"
+}

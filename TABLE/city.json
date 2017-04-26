@@ -1,0 +1,169 @@
+{
+  "name" : "city",
+  "temporary" : false,
+  "constraints" : [ {
+    "name" : "PRIMARY",
+    "inline" : false,
+    "type" : {
+      "primaryKey" : {
+        "columns" : [ {
+          "container" : "prod-med19",
+          "tableName" : "city",
+          "columnName" : "city_id"
+        } ]
+      }
+    }
+  }, {
+    "name" : "fk_city_country",
+    "inline" : false,
+    "type" : {
+      "foreignKey" : {
+        "columns" : [ {
+          "container" : "prod-med19",
+          "tableName" : "city",
+          "columnName" : "country_id"
+        } ],
+        "refColumns" : [ {
+          "container" : "",
+          "tableName" : "country",
+          "columnName" : "country_id"
+        } ],
+        "properties" : {
+          "matchRule" : "NONE",
+          "onDelete" : "NO ACTION",
+          "onUpdate" : "CASCADE"
+        }
+      }
+    }
+  }, {
+    "inline" : true,
+    "type" : {
+      "notNull" : {
+        "columns" : [ {
+          "container" : "prod-med19",
+          "tableName" : "city",
+          "columnName" : "city_id"
+        } ]
+      }
+    }
+  }, {
+    "inline" : true,
+    "type" : {
+      "notNull" : {
+        "columns" : [ {
+          "container" : "prod-med19",
+          "tableName" : "city",
+          "columnName" : "city"
+        } ]
+      }
+    }
+  }, {
+    "inline" : true,
+    "type" : {
+      "notNull" : {
+        "columns" : [ {
+          "container" : "prod-med19",
+          "tableName" : "city",
+          "columnName" : "country_id"
+        } ]
+      }
+    }
+  }, {
+    "inline" : true,
+    "type" : {
+      "notNull" : {
+        "columns" : [ {
+          "container" : "prod-med19",
+          "tableName" : "city",
+          "columnName" : "last_update"
+        } ]
+      }
+    }
+  } ],
+  "type" : {
+    "relational" : {
+      "columns" : [ {
+        "name" : "city_id",
+        "properties" : {
+          "autoincrement" : true
+        },
+        "dataType" : {
+          "text" : "smallint(${0}) ${1}",
+          "name" : "smallint",
+          "params" : [ {
+            "position" : 0,
+            "name" : "length",
+            "value" : "5"
+          }, {
+            "position" : 1,
+            "name" : "signed",
+            "value" : "UNSIGNED"
+          } ]
+        }
+      }, {
+        "name" : "city",
+        "properties" : {
+          "autoincrement" : false
+        },
+        "dataType" : {
+          "text" : "varchar(${0}) COLLATE ${1} CHARACTER SET ${2}",
+          "name" : "varchar",
+          "params" : [ {
+            "position" : 0,
+            "name" : "length",
+            "value" : "100"
+          }, {
+            "position" : 1,
+            "name" : "collation",
+            "value" : "utf8_general_ci"
+          }, {
+            "position" : 2,
+            "name" : "charset",
+            "value" : "utf8"
+          } ]
+        }
+      }, {
+        "name" : "country_id",
+        "properties" : {
+          "autoincrement" : false
+        },
+        "dataType" : {
+          "text" : "smallint(${0}) ${1}",
+          "name" : "smallint",
+          "params" : [ {
+            "position" : 0,
+            "name" : "length",
+            "value" : "5"
+          }, {
+            "position" : 1,
+            "name" : "signed",
+            "value" : "UNSIGNED"
+          } ]
+        }
+      }, {
+        "name" : "last_update",
+        "defaultValue" : "CURRENT_TIMESTAMP",
+        "properties" : {
+          "autoincrement" : false,
+          "onUpdate" : "CURRENT_TIMESTAMP"
+        },
+        "dataType" : {
+          "text" : "timestamp( ${0})",
+          "name" : "timestamp",
+          "params" : [ {
+            "position" : 0,
+            "name" : "fsp",
+            "value" : "0"
+          } ]
+        }
+      } ]
+    }
+  },
+  "properties" : {
+    "engine" : "InnoDB",
+    "autoIncrement" : 1,
+    "avgRowLength" : 0,
+    "collate" : "utf8_general_ci",
+    "rowFormat" : "DEFAULT"
+  }
+}

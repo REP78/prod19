@@ -1,0 +1,37 @@
+{
+  "id" : "film_not_in_stock",
+  "name" : "film_not_in_stock",
+  "definer" : "`root`@`localhost`",
+  "body" : "BEGIN\r\n   SELECT inventory_id\r\n     FROM inventory\r\n    WHERE     film_id = p_film_id\r\n          AND store_id = p_store_id\r\n          AND NOT inventory_in_stock(inventory_id);\r\n\r\n   SELECT FOUND_ROWS()\r\n     INTO p_film_count;\r\nEND",
+  "params" : [ {
+    "paramMode" : "IN",
+    "paramName" : "p_film_id",
+    "dataType" : {
+      "text" : "int(11)",
+      "name" : "int(11)"
+    },
+    "position" : 1
+  }, {
+    "paramMode" : "IN",
+    "paramName" : "p_store_id",
+    "dataType" : {
+      "text" : "int(11)",
+      "name" : "int(11)"
+    },
+    "position" : 2
+  }, {
+    "paramMode" : "OUT",
+    "paramName" : "p_film_count",
+    "dataType" : {
+      "text" : "int(11)",
+      "name" : "int(11)"
+    },
+    "position" : 3
+  } ],
+  "properties" : {
+    "comment" : "",
+    "deterministic" : "NOT DETERMINISTIC",
+    "dataUse" : "READS SQL DATA",
+    "sqlSecurity" : "DEFINER"
+  }
+}

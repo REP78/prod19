@@ -1,0 +1,19 @@
+{
+  "id" : "del_film",
+  "time" : "AFTER",
+  "action" : "BEGIN\r\n   DELETE FROM film_text\r\n         WHERE film_id = old.film_id;\r\nEND",
+  "on" : {
+    "table" : {
+      "events" : [ "DELETE" ],
+      "tableRef" : {
+        "id" : "film",
+        "tableName" : "film",
+        "containerName" : "prod-med19"
+      }
+    }
+  },
+  "properties" : {
+    "definer" : "`root`@`localhost`"
+  },
+  "name" : "del_film"
+}
