@@ -12,7 +12,7 @@
     "paramName" : "p_inventory_id",
     "dataType" : {
       "text" : "int(11)",
-      "name" : "int(11)"
+      "name" : "int(15)"
     },
     "position" : 1
   } ],
